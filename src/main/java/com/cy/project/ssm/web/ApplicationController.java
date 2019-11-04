@@ -10,13 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class ApplicationController {
-    public ApplicationController() {
-        System.out.println("Ssssssssssssssssssssss");
-    }
 
-    @RequestMapping("/login.html ")
+    @RequestMapping("/login.html")
     public String login(){
-        System.out.println(">>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<");
         return "login";
     }
 }
