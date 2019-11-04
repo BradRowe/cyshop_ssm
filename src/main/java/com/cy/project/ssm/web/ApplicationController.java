@@ -14,7 +14,7 @@ public class ApplicationController {
         System.out.println("Ssssssssssssssssssssss");
     }
 
-    @RequestMapping("/login.html ")
+    @RequestMapping("/login.html")
     public String login(){
         System.out.println(">>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<");
         return "login";
