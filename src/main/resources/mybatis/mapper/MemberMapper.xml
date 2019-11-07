@@ -13,4 +13,10 @@
     <result column="status" jdbcType="INTEGER" property="status" />
     <result column="phone" jdbcType="VARCHAR" property="phone" />
   </resultMap>
+
+  <select id="selectAllMember" resultMap="BaseResultMap">
+    select id,level_id,account,password,name,status,phone from member
+  </select>
+
+
 </mapper>

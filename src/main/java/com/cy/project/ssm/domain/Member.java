@@ -172,4 +172,17 @@ public class Member {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
+    @Override
+    public String toString() {
+        return "Member{" +
+                "id=" + id +
+                ", levelId=" + levelId +
+                ", account='" + account + '\'' +
+                ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
+                ", status=" + status +
+                ", phone='" + phone + '\'' +
+                '}';
+    }
 }
