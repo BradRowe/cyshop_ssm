@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cy.project.ssm.mapper.RefundOrReturnItemMapper">
+  <resultMap id="BaseResultMap" type="com.cy.project.ssm.domain.RefundOrReturnItem">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="return_id" jdbcType="INTEGER" property="returnId" />
+    <result column="sku_id" jdbcType="INTEGER" property="skuId" />
+    <result column="nums" jdbcType="INTEGER" property="nums" />
+    <result column="sku_price" jdbcType="DOUBLE" property="skuPrice" />
+  </resultMap>
+</mapper>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cy.project.ssm.mapper.MemberAddressMapper">
+  <resultMap id="BaseResultMap" type="com.cy.project.ssm.domain.MemberAddress">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="member_id" jdbcType="INTEGER" property="memberId" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="district" jdbcType="VARCHAR" property="district" />
+    <result column="specific_address" jdbcType="VARCHAR" property="specificAddress" />
+    <result column="consignee_name" jdbcType="VARCHAR" property="consigneeName" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="defualt" jdbcType="INTEGER" property="defualt" />
+  </resultMap>
+</mapper>

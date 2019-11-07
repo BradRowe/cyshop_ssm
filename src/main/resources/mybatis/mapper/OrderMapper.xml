@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cy.project.ssm.mapper.OrderMapper">
+  <resultMap id="BaseResultMap" type="com.cy.project.ssm.domain.Order">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="member_id" jdbcType="INTEGER" property="memberId" />
+    <result column="member_address_id" jdbcType="INTEGER" property="memberAddressId" />
+    <result column="creat_time" jdbcType="TIMESTAMP" property="creatTime" />
+    <result column="pay_time" jdbcType="TIMESTAMP" property="payTime" />
+    <result column="total_price" jdbcType="INTEGER" property="totalPrice" />
+    <result column="discounts" jdbcType="INTEGER" property="discounts" />
+    <result column="post_price" jdbcType="INTEGER" property="postPrice" />
+    <result column="payment" jdbcType="INTEGER" property="payment" />
+    <result column="payment_way_id" jdbcType="INTEGER" property="paymentWayId" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="delete_status" jdbcType="INTEGER" property="deleteStatus" />
+  </resultMap>
+</mapper>

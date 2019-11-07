@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cy.project.ssm.mapper.SpuMapper">
+  <resultMap id="BaseResultMap" type="com.cy.project.ssm.domain.Spu">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="catalog_1_id" jdbcType="INTEGER" property="catalog1Id" />
+    <result column="catalog_2_id" jdbcType="INTEGER" property="catalog2Id" />
+    <result column="catalog_3_id" jdbcType="INTEGER" property="catalog3Id" />
+    <result column="spu_name" jdbcType="VARCHAR" property="spuName" />
+    <result column="spu_description" jdbcType="VARCHAR" property="spuDescription" />
+    <result column="hot" jdbcType="INTEGER" property="hot" />
+  </resultMap>
+</mapper>
