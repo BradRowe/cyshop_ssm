@@ -1,47 +1,38 @@
 package com.cy.project.ssm.viewobject;
 
-
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * @version 1.0.0
- * @ClassName Catalog2VO
+ * @ClassName Catalog3VO
  * @Description TODO
  * @Author Administrator
- * @date 2019/11/716:23
+ * @date 2019/11/716:51
  */
-public class Catalog2VO {
-
+public class Catalog3VO {
     private Integer id;
 
     private Integer pid;
 
     private String name;
 
-    private String level = "2";
+    private String level = "3";
 
-    private List<Catalog3VO> children = new ArrayList<>();
-
-    public Catalog2VO(Integer id, Integer pid, String name, String level, List<Catalog3VO> children) {
+    public Catalog3VO(Integer id, Integer pid, String name, String level) {
         this.id = id;
         this.pid = pid;
         this.name = name;
         this.level = level;
-        this.children = children;
     }
 
-    public Catalog2VO() {
+    public Catalog3VO() {
     }
 
     @Override
     public String toString() {
-        return "Catalog2VO{" +
+        return "Catalog3VO{" +
                 "id=" + id +
                 ", pid=" + pid +
                 ", name='" + name + '\'' +
                 ", level='" + level + '\'' +
-                ", children=" + children +
                 '}';
     }
 
@@ -75,13 +66,5 @@ public class Catalog2VO {
 
     public void setLevel(String level) {
         this.level = level;
-    }
-
-    public List<Catalog3VO> getChildren() {
-        return children;
-    }
-
-    public void setChildren(List<Catalog3VO> children) {
-        this.children = children;
     }
 }
