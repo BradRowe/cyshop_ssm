@@ -32,4 +32,22 @@ public class MemberServiceImpl implements MemberService {
 
         return members;
     }
+
+    @Override
+    public boolean memberById(Integer id, Integer status) {
+        System.out.println("Luohai");
+
+        System.out.println(status);
+
+        Integer num = memberMapper.updateStatusByIdMember(id,status);
+
+        System.out.println("asdf");
+
+        if(num > 0){
+            return true;
+        }
+        return false;
+    }
+
+
 }
