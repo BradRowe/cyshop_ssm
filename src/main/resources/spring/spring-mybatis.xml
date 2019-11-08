@@ -34,12 +34,11 @@
 
     </bean>
     <!--配置mapper接口的扫描-->
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+    <!-- 通过扫描的模式，扫描目录在mapper目录下 -->
+    <bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
         <property name="basePackage" value="com.cy.project.ssm.mapper"/>
-
     </bean>
-
     <!--配置事务管理器对象-->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
