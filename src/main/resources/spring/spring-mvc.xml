@@ -18,7 +18,6 @@
 
     <!--2. 配置静态资源过滤-->
     <mvc:default-servlet-handler/>
-    <!--<mvc:resources mapping="/static/" location="/static/**"/>-->
 
     <!--3. 配置外部资源文件-->
     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
@@ -44,5 +43,20 @@
 
     <!--7. 启用MVC注解扫描-->
     <mvc:annotation-driven/>
+
+    <!--消息转换器，解决向前端发送数据时出现中文乱码的问题-->
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>text/html;charset=UTF-8</value>
+                        <value>application/json;charset=UTF-8</value>
+                        <value>*/*;charset=UTF-8</value>
+                    </list>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
 
 </beans>
