@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cy.project.ssm.mapper.RefundVOMapper">
+    <select id="selectAll" resultType="com.cy.project.ssm.viewobject.RefundVO">
+        SELECT
+            roro.`order_id` orderId,
+            m.`name` memberName,
+            ma.`consignee_name` consigneeName,
+            ma.`phone` phone,
+            ( rori.sku_price * rori.nums ) payment,
+            roro.`status` refundStatus,
+            roro.`creat_time` createTime,
+            rori.`nums` num,
+            o.pay_time paymentTime,
+            pm.`name` paymentWay,
+            m.account account,
+            roro.`spu_name` skuName,
+            roro.`reason` reason
+        FROM
+            `refund_or_return_order` roro
+            JOIN ( `order` o, member m, member_address ma, payment_method pm, order_item oi, sku s, refund_or_return_item rori ) ON o.member_id = m.id
+            AND o.member_address_id = ma.id
+            AND o.payment_way_id = pm.id
+            AND o.id = oi.order_id
+            AND s.id = oi.sku_id
+            AND o.id = roro.order_id
+            AND rori.return_id = roro.id
+    </select>
+    <select id="selectOneByOrderId" parameterType="Integer" resultType="com.cy.project.ssm.viewobject.RefundVO">
+        SELECT
+            roro.`order_id` orderId,
+            m.`name` memberName,
+            ma.`consignee_name` consigneeName,
+            ma.`phone` phone,
+            ( rori.sku_price * rori.nums ) payment,
+            roro.`status` refundStatus,
+            roro.`creat_time` createTime,
+            rori.`nums` num,
+            o.pay_time paymentTime,
+            pm.`name` paymentWay,
+            m.account account,
+            roro.`spu_name` skuName,
+            roro.`reason` reason
+        FROM
+            `refund_or_return_order` roro
+            JOIN ( `order` o, member m, member_address ma, payment_method pm, order_item oi, sku s, refund_or_return_item rori ) ON o.member_id = m.id
+            AND o.member_address_id = ma.id
+            AND o.payment_way_id = pm.id
+            AND o.id = oi.order_id
+            AND s.id = oi.sku_id
+            AND o.id = roro.order_id
+            AND rori.return_id = roro.id
+        where roro.`order_id` = #{id}
+    </select>
+</mapper>
