@@ -4,6 +4,7 @@ import javax.persistence.*;
 
 @Table(name = "`member`")
 public class Member {
+
     /**
      * 编号
      */
@@ -172,6 +173,7 @@ public class Member {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
 
     @Override
     public String toString() {

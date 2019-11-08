@@ -9,4 +9,6 @@ public interface MemberMapper extends Mapper<Member> {
 
     List<Member> selectAllMember();
 
+    Integer updateStatusByIdMember(Integer id,Integer status);
+
 }

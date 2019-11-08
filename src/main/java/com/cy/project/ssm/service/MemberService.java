@@ -8,4 +8,7 @@ public interface MemberService {
 
     List<Member> memberAndAll();
 
+//    通过id更改会员状态
+    boolean memberById(Integer id,Integer status);
+
 }
