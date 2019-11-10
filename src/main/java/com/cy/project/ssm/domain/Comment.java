@@ -1,5 +1,7 @@
 package com.cy.project.ssm.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 import javax.persistence.*;
 
@@ -48,8 +50,11 @@ public class Comment {
     /**
      * 发表时间
      */
+
+    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss", timezone="GMT+8")
     @Column(name = "`publish_time`")
     private Date publishTime;
+
 
     /**
      * 是否匿名 0-否  1-是

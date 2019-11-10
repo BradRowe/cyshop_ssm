@@ -18,4 +18,9 @@ public class CatalogServiceImplTest {
     public void getCatalog() {
         catalogService.getCatalog();
     }
+
+    @Test
+    public void addCatalog() {
+        catalogService.addCatalog("一级分类", "测试", null);
+    }
 }

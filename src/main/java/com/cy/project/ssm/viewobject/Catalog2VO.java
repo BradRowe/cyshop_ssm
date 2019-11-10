@@ -19,7 +19,7 @@ public class Catalog2VO {
 
     private String name;
 
-    private String level = "2";
+    private String level = "二级分类";
 
     private List<Catalog3VO> children = new ArrayList<>();
 

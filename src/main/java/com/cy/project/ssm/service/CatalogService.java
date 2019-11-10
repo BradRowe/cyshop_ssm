@@ -38,4 +38,21 @@ public interface CatalogService {
      * @return
      */
     List<Catalog1VO> getCatalog();
+
+    /**
+     * 添加分类
+     * @param level 所属分类级别
+     * @param name 分列名称
+     * @param pid 父类id
+     * @return
+     */
+    Integer addCatalog(String level,String name,String pid);
+
+    /**
+     * 删除分类
+     * @param level 所属分类级别
+     * @param id 分类id
+     * @return
+     */
+    Integer deleteCatalog(String level, String id);
 }
