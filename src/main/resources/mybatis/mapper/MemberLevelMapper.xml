@@ -9,5 +9,27 @@
     <result column="level" jdbcType="INTEGER" property="level" />
     <result column="discount" jdbcType="DOUBLE" property="discount" />
     <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="member_number" jdbcType="INTEGER" property="memberNumber" />
   </resultMap>
+
+  <select id="selectMemberLevelAll" resultMap="BaseResultMap">
+
+    select ml.id,ml.level,ml.discount,ml.name,count(m.level_id) member_number from member_level ml left join member m on m.level_id=ml.id group by ml.id
+
+  </select>
+
+  <insert id="insertMemberLevelAll">
+
+    insert into member_level(`level`,`discount`,`name`)
+    values
+    (#{level},#{discount},#{name})
+
+  </insert>
+
+  <update id="updateByIdAndNameAndDiscount">
+
+    update member_level set discount = #{discount},name = #{name} where id = #{id}
+
+  </update>
+
 </mapper>

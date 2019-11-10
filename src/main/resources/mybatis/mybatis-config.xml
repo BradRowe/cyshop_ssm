@@ -22,5 +22,4 @@
         <package name="com.cy.project.ssm.domain"/>
     </typeAliases>
 
-
 </configuration>
