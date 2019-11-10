@@ -14,7 +14,7 @@ public class Catalog3VO {
 
     private String name;
 
-    private String level = "3";
+    private String level = "三级分类";
 
     public Catalog3VO(Integer id, Integer pid, String name, String level) {
         this.id = id;

@@ -58,7 +58,7 @@ public class CatalogServiceImpl implements CatalogService {
             catalog1VO.setName(c1.getName());
             catalog1VOs.add(catalog1VO);
         }
-        System.out.println(catalog1VOs);
+//        System.out.println(catalog1VOs);
         List<Catalog2> catalog2s = select2All();
         List<Catalog2VO> catalog2VOs = new ArrayList<>();
         for (Catalog2 c2 : catalog2s) {
@@ -68,7 +68,7 @@ public class CatalogServiceImpl implements CatalogService {
             catalog2VO.setPid(c2.getCatalog1Id());
             catalog2VOs.add(catalog2VO);
         }
-        System.out.println(catalog2VOs);
+//        System.out.println(catalog2VOs);
         List<Catalog3> catalog3s = select3All();
         List<Catalog3VO> catalog3VOs = new ArrayList<>();
         for (Catalog3 c3 : catalog3s) {
@@ -78,7 +78,7 @@ public class CatalogServiceImpl implements CatalogService {
             catalog3VO.setPid(c3.getCatalog2Id());
             catalog3VOs.add(catalog3VO);
         }
-        System.out.println(catalog3VOs);
+//        System.out.println(catalog3VOs);
 
         for (Catalog1VO c1o : catalog1VOs) {
             for (Catalog2VO c2o : catalog2VOs) {
@@ -92,11 +92,63 @@ public class CatalogServiceImpl implements CatalogService {
                 }
             }
         }
-        System.out.println(catalog1VOs);
+//        System.out.println(catalog1VOs);
 
         Catalog1VO catalog1VO = new Catalog1VO();
 
 
         return catalog1VOs;
+    }
+
+    @Override
+    public Integer addCatalog(String level, String name, String pid) {
+        Integer row = -1;
+
+        switch (level) {
+            case "一级分类":
+                Catalog1 catalog1 = new Catalog1();
+                catalog1.setName(name);
+                row = catalog1Mapper.insert(catalog1);
+                break;
+            case "二级分类":
+                Catalog2 catalog2 = new Catalog2();
+                catalog2.setName(name);
+                catalog2.setCatalog1Id(Integer.parseInt(pid));
+                row = catalog2Mapper.insert(catalog2);
+                break;
+            case "三级分类":
+                Catalog3 catalog3 = new Catalog3();
+                catalog3.setName(name);
+                catalog3.setCatalog2Id(Integer.parseInt(pid));
+                row = catalog3Mapper.insert(catalog3);
+                break;
+        }
+
+        return row;
+    }
+
+    @Override
+    public Integer deleteCatalog(String level, String id) {
+        Integer row = -1;
+
+        switch (level) {
+            case "一级分类":
+                Catalog1 catalog1 = new Catalog1();
+                catalog1.setId(Integer.parseInt(id));
+                row = catalog1Mapper.delete(catalog1);
+                break;
+            case "二级分类":
+                Catalog2 catalog2 = new Catalog2();
+                catalog2.setId(Integer.parseInt(id));
+                row = catalog2Mapper.delete(catalog2);
+                break;
+            case "三级分类":
+                Catalog3 catalog3 = new Catalog3();
+                catalog3.setId(Integer.parseInt(id));
+                row = catalog3Mapper.delete(catalog3);
+                break;
+        }
+
+        return row;
     }
 }

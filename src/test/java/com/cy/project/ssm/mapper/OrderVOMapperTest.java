@@ -1,6 +1,5 @@
-package com.cy.project.ssm.service.impl;
+package com.cy.project.ssm.mapper;
 
-import com.cy.project.ssm.service.CatalogService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,19 +7,17 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import static org.junit.Assert.*;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:spring/spring-mybatis.xml")
-public class CatalogServiceImplTest {
+public class OrderVOMapperTest {
+
     @Autowired
-    private CatalogService catalogService;
+    private OrderVOMapper orderVOMapper;
 
     @Test
-    public void getCatalog() {
-        catalogService.getCatalog();
-    }
-
-    @Test
-    public void addCatalog() {
-        catalogService.addCatalog("一级分类", "测试", null);
+    public void changeOrderStatus() {
+        int status = orderVOMapper.changeOrderStatus("70","3");
+        System.out.println(status);
     }
 }
