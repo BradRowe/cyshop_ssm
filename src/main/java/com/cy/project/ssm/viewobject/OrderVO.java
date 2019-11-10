@@ -1,7 +1,11 @@
 package com.cy.project.ssm.viewobject;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author zhy
@@ -29,21 +33,20 @@ public class OrderVO implements Serializable {
 //    支付方式
     private String paymentWay;
 //    订单创建时间
+    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss",timezone="GMT+8")
     private Date createTime;
-//    商品名称
-    private String skuName;
-//    商品编号
-    private Integer skuId;
-//    产品属性规格
-    private String skuDescription;
-//    购买数量
-    private Integer num;
-//    收货地址
-    private String consigneeAddress;
-//    收货电话
-    private String phone;
-//    买家账号
+
     private String account;
+
+    private String phone;
+
+    private Date paymentTime;
+
+    private String consigneePhone;
+
+    private String consigneeAddress;
+
+    private List<OrderVOC> children = new ArrayList<>();
 
     public Integer getOrderId() {
         return orderId;
@@ -117,44 +120,12 @@ public class OrderVO implements Serializable {
         this.createTime = createTime;
     }
 
-    public String getSkuName() {
-        return skuName;
+    public String getAccount() {
+        return account;
     }
 
-    public void setSkuName(String skuName) {
-        this.skuName = skuName;
-    }
-
-    public Integer getSkuId() {
-        return skuId;
-    }
-
-    public void setSkuId(Integer skuId) {
-        this.skuId = skuId;
-    }
-
-    public String getSkuDescription() {
-        return skuDescription;
-    }
-
-    public void setSkuDescription(String skuDescription) {
-        this.skuDescription = skuDescription;
-    }
-
-    public Integer getNum() {
-        return num;
-    }
-
-    public void setNum(Integer num) {
-        this.num = num;
-    }
-
-    public String getConsigneeAddress() {
-        return consigneeAddress;
-    }
-
-    public void setConsigneeAddress(String consigneeAddress) {
-        this.consigneeAddress = consigneeAddress;
+    public void setAccount(String account) {
+        this.account = account;
     }
 
     public String getPhone() {
@@ -165,12 +136,36 @@ public class OrderVO implements Serializable {
         this.phone = phone;
     }
 
-    public String getAccount() {
-        return account;
+    public Date getPaymentTime() {
+        return paymentTime;
     }
 
-    public void setAccount(String account) {
-        this.account = account;
+    public void setPaymentTime(Date paymentTime) {
+        this.paymentTime = paymentTime;
+    }
+
+    public String getConsigneePhone() {
+        return consigneePhone;
+    }
+
+    public void setConsigneePhone(String consigneePhone) {
+        this.consigneePhone = consigneePhone;
+    }
+
+    public String getConsigneeAddress() {
+        return consigneeAddress;
+    }
+
+    public void setConsigneeAddress(String consigneeAddress) {
+        this.consigneeAddress = consigneeAddress;
+    }
+
+    public List<OrderVOC> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<OrderVOC> children) {
+        this.children = children;
     }
 
     @Override
@@ -182,16 +177,15 @@ public class OrderVO implements Serializable {
                 ", totalPrice=" + totalPrice +
                 ", postPrice=" + postPrice +
                 ", payment=" + payment +
-                ", orderStatus=" + orderStatus +
-                ", paymentWay=" + paymentWay +
+                ", orderStatus='" + orderStatus + '\'' +
+                ", paymentWay='" + paymentWay + '\'' +
                 ", createTime=" + createTime +
-                ", skuName=" + skuName +
-                ", skuId=" + skuId +
-                ", skuDescription=" + skuDescription +
-                ", num=" + num +
-                ", consigneeAddress=" + consigneeAddress +
-                ", phone=" + phone +
-                ", account=" + account +
+                ", account='" + account + '\'' +
+                ", phone='" + phone + '\'' +
+                ", paymentTime=" + paymentTime +
+                ", consigneePhone='" + consigneePhone + '\'' +
+                ", consigneeAddress='" + consigneeAddress + '\'' +
+                ", children=" + children +
                 '}';
     }
 }
