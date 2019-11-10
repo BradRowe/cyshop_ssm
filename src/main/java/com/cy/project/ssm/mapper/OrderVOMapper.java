@@ -9,7 +9,7 @@ public interface OrderVOMapper {
 
     List<OrderVO> selectAll();
 
-    List<OrderVO> selectOrderById(int orderId);
+    OrderVO selectOrderById(int orderId);
 
     List<OrderVOC> selectOrderCById(int orderId);
 

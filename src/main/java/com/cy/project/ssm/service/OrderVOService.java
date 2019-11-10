@@ -9,7 +9,7 @@ public interface OrderVOService {
 
     List<OrderVO> selectAll();
 
-    List<OrderVO> selectOrderById(int orderId);
+    OrderVO selectOrderById(int orderId);
 
     int changeOrderStatus(String id, String status);
 }

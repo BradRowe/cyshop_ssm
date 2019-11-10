@@ -92,7 +92,7 @@ public class OrderController {
             @RequestParam(value="id",required = false) String id
     ){
         int idInt = Integer.parseInt(id);
-        List<OrderVO> orderVOCs = orderVOService.selectOrderById(idInt);
+        OrderVO orderVOCs = orderVOService.selectOrderById(idInt);
         ObjectMapper mapper = new ObjectMapper();
         try {
             String orderVOCJ = mapper.writeValueAsString(orderVOCs);

@@ -78,11 +78,11 @@ public class OrderVOServiceImpl implements OrderVOService {
      * @return
      */
     @Override
-    public List<OrderVO> selectOrderById(int orderId) {
-        List<OrderVO> ovos = orderVOMapper.selectOrderById(orderId);
+    public OrderVO selectOrderById(int orderId) {
+        OrderVO ovos = orderVOMapper.selectOrderById(orderId);
         List<OrderVOC> ovocs = orderVOMapper.selectOrderCById(orderId);
 //        List<OrderVO> oVOs = new ArrayList<>();
-        for(OrderVO ovo : ovos){
+//        for(OrderVO ovo : ovos){
             String orderStatus = "";
 //            OrderVO oVO = new OrderVO();
 //            oVO.setOrderId(ovo.getOrderId());
@@ -92,7 +92,7 @@ public class OrderVOServiceImpl implements OrderVOService {
 //            oVO.setTotalPrice(ovo.getTotalPrice());
 //            oVO.setPostPrice(ovo.getPostPrice());
 //            oVO.setPayment(ovo.getPayment());
-            switch (ovo.getOrderStatus()){
+            switch (ovos.getOrderStatus()){
                 case "0":
                     orderStatus = "已取消";
                     break;
@@ -108,6 +108,9 @@ public class OrderVOServiceImpl implements OrderVOService {
                 case "4":
                     orderStatus = "已收货";
                     break;
+                default:
+                    orderStatus = "已失效";
+                    break;
             }
 //            oVO.setOrderStatus(orderStatus);
 //            oVO.setPaymentWay(ovo.getPaymentWay());
@@ -117,10 +120,10 @@ public class OrderVOServiceImpl implements OrderVOService {
 //            oVO.setPaymentTime(ovo.getPaymentTime());
 //            oVO.setConsigneeAddress(ovo.getConsigneeAddress());
 //            oVO.setChildren(ovocs);
-            ovo.setOrderStatus(orderStatus);
-            ovo.setChildren(ovocs);
+        ovos.setOrderStatus(orderStatus);
+        ovos.setChildren(ovocs);
 //            oVOs.add(oVO);
-        }
+//        }
 //        return oVOs;
         return ovos;
 
