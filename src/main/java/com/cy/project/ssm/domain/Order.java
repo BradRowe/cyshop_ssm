@@ -259,7 +259,7 @@ public class Order {
     }
 
     /**
-     * 获取订单状态 -0 已取消 1未付款 2已付款3 已发货 4 已收货 
+     * 获取订单状态 -0 已取消 1未付款 2已付款3 已发货 4 已收货
      *
      * @return status - 订单状态 -0 已取消 1未付款 2已付款3 已发货 4 已收货 
      */
@@ -270,7 +270,7 @@ public class Order {
     /**
      * 设置订单状态 -0 已取消 1未付款 2已付款3 已发货 4 已收货 
      *
-     * @param status 订单状态 -0 已取消 1未付款 2已付款3 已发货 4 已收货 
+     * @param status 订单状态 -0 已取消 1未付款 2已付款3 已发货 4 已收货
      */
     public void setStatus(Integer status) {
         this.status = status;
