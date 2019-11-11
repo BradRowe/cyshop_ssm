@@ -1,23 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cy.project.ssm.mapper.MemberMapper">
-  <resultMap id="BaseResultMap" type="com.cy.project.ssm.domain.Member">
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="level_id" jdbcType="INTEGER" property="levelId" />
-    <result column="account" jdbcType="VARCHAR" property="account" />
-    <result column="password" jdbcType="VARCHAR" property="password" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="status" jdbcType="INTEGER" property="status" />
-    <result column="phone" jdbcType="VARCHAR" property="phone" />
-  </resultMap>
-
-  <select id="selectAllMember" resultMap="BaseResultMap">
-    select id,level_id,account,password,name,status,phone from member
-  </select>
 
   <update id="updateStatusByIdMember">
       update member set status = #{status} where id = #{id}
   </update>
+
+  <insert id="insertNewMembers">
+    insert into member(`account`,`password`,`name`,`phone`)
+    values
+    (#{account},#{password},#{name},#{phone})
+  </insert>
+
+
 
 
 </mapper>
