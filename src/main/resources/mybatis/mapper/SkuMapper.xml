@@ -15,4 +15,19 @@
     <result column="sku_status" jdbcType="INTEGER" property="skuStatus" />
     <result column="stock_warning" jdbcType="INTEGER" property="stockWarning" />
   </resultMap>
+
+  <update id="updateStatusById">
+
+    update sku set sku_status = #{skuStatus} where id = #{id}
+
+  </update>
+
+  <update id="updateSkuByIdAndPriceStockStockwarning">
+
+    update sku set price = #{price},stock = #{stock},stock_warning = #{stockWarning} where id = #{id}
+
+  </update>
+
+
+
 </mapper>

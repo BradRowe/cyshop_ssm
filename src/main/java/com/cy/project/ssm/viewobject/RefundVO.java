@@ -25,6 +25,7 @@ public class RefundVO implements Serializable {
     private String account;
     private String skuName;
     private String reason;
+    private String rStatus;
 
     public Integer getOrderId() {
         return orderId;
@@ -130,6 +131,14 @@ public class RefundVO implements Serializable {
         this.reason = reason;
     }
 
+    public String getRStatus() {
+        return rStatus;
+    }
+
+    public void setRStatus(String rStatus) {
+        this.rStatus = rStatus;
+    }
+
     @Override
     public String toString() {
         return "RefundVO{" +
@@ -146,6 +155,7 @@ public class RefundVO implements Serializable {
                 ", account='" + account + '\'' +
                 ", skuName='" + skuName + '\'' +
                 ", reason='" + reason + '\'' +
+                ", rStatus='" + rStatus + '\'' +
                 '}';
     }
 }

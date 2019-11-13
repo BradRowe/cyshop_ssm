@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cy.project.ssm.mapper.MemberAddNameMapper">
+    <select id="selectMemberAlls" resultType="com.cy.project.ssm.domain.MemberAddName">
+          select m.id,m.account,m.password,m.name,m.status,m.phone,ml.name levelName from member m inner join member_level ml on m.level_id = ml.id
+    </select>
+</mapper>

@@ -8,4 +8,6 @@ public interface RefundVOMapper {
     List<RefundVO> selectAll();
 
     RefundVO selectOneByOrderId(int orderId);
+
+    int changeRefundStatus(String id, String status);
 }

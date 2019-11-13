@@ -29,6 +29,9 @@ public class MemberLevel {
     @Column(name = "`name`")
     private String name;
 
+    @Column(name = "`member_number`")
+    private Integer memberNumber;
+
     /**
      * 获取编号
      *
@@ -99,5 +102,25 @@ public class MemberLevel {
      */
     public void setName(String name) {
         this.name = name;
+    }
+
+
+    public Integer getMemberNumber() {
+        return memberNumber;
+    }
+
+    public void setMemberNumber(Integer memberNumber) {
+        this.memberNumber = memberNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "MemberLevel{" +
+                "id=" + id +
+                ", level=" + level +
+                ", discount=" + discount +
+                ", name='" + name + '\'' +
+                ", memberNumber=" + memberNumber +
+                '}';
     }
 }

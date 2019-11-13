@@ -5,7 +5,7 @@
 <mapper namespace="com.cy.project.ssm.mapper.OrderVOMapper">
     <select id="selectAll" resultType="com.cy.project.ssm.viewobject.OrderVO">
         SELECT
-            o.id orderId,
+            o.`id` orderId,
             m.`name` memberName,
             ma.`consignee_name` consigneeName,
             o.`total_price` totalPrice,
@@ -13,25 +13,16 @@
             o.payment payment,
             o.`status` orderStatus,
             pm.`name` paymentWay,
-            o.`creat_time` createTime,
-            s.`name` skuName,
-            oi.`sku_id` skuId,
-            s.`description` skuDescription,
-            oi.`nums` num,
-            ma.`specific_address` consigneeAddress,
-            ma.`phone` phone,
-            m.account account
+            o.`creat_time` createTime
         FROM
             `order` o
-            JOIN ( member m, member_address ma, payment_method pm, order_item oi, sku s ) ON o.member_id = m.id
+            JOIN ( member m, member_address ma, payment_method pm) ON o.member_id = m.id
             AND o.member_address_id = ma.id
             AND o.payment_way_id = pm.id
-            AND o.id = oi.order_id
-            AND s.id = oi.sku_id
     </select>
-    <select id="selectOneByOrderId" parameterType="Integer" resultType="com.cy.project.ssm.viewobject.OrderVO">
+    <select id="selectOrderById" parameterType="Integer" resultType="com.cy.project.ssm.viewobject.OrderVO">
         SELECT
-            o.id orderId,
+            o.`id` orderId,
             m.`name` memberName,
             ma.`consignee_name` consigneeName,
             o.`total_price` totalPrice,
@@ -40,13 +31,27 @@
             o.`status` orderStatus,
             pm.`name` paymentWay,
             o.`creat_time` createTime,
+            m.account account,
+            m.phone phone,
+            o.`pay_time` paymentTime,
+            ma.phone consigneePhone,
+            ma.specific_address consigneeAddress
+        FROM
+            `order` o
+            JOIN ( member m, member_address ma, payment_method pm) ON o.member_id = m.id
+            AND o.member_address_id = ma.id
+            AND o.payment_way_id = pm.id
+        where o.`id` = #{id}
+    </select>
+    <select id="selectOrderCById" parameterType="Integer" resultType="com.cy.project.ssm.viewobject.OrderVOC">
+        SELECT
+            o.`id` orderId,
             s.`name` skuName,
             oi.`sku_id` skuId,
             s.`description` skuDescription,
             oi.`nums` num,
-            ma.`specific_address` consigneeAddress,
-            ma.`phone` phone,
-            m.account account
+            s.`price` price,
+            (oi.`nums`*s.`price`) sum
         FROM
             `order` o
             JOIN ( member m, member_address ma, payment_method pm, order_item oi, sku s ) ON o.member_id = m.id
@@ -54,6 +59,9 @@
             AND o.payment_way_id = pm.id
             AND o.id = oi.order_id
             AND s.id = oi.sku_id
-          where o.`id` = #{id}
+        where o.`id` = #{id}
     </select>
+    <update id="changeOrderStatus" >
+        update `order` set `status` = #{arg1} where `id` = #{arg0}
+    </update>
 </mapper>

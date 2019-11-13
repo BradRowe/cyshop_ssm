@@ -6,6 +6,7 @@ import com.cy.project.ssm.viewobject.RefundVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,11 +25,36 @@ public class RefundVOServiceImpl implements RefundVOService {
 
     @Override
     public List<RefundVO> selectAll() {
-        return refundVOMapper.selectAll();
+        List<RefundVO> rvos = refundVOMapper.selectAll();
+        List<RefundVO> rVOs = new ArrayList<>();
+        for (RefundVO rvo : rvos){
+            switch (rvo.getRStatus()){
+                case "0":
+                    rvo.setRStatus("未处理");
+                    break;
+                case "1":
+                    rvo.setRStatus("已通过");
+                    break;
+                case "2":
+                    rvo.setRStatus("已完成");
+                    break;
+                default:
+                    rvo.setRStatus("已撤销");
+                    break;
+            }
+            rVOs.add(rvo);
+        }
+        return rVOs;
     }
 
     @Override
     public RefundVO selectOneByOrderId(int orderId) {
         return refundVOMapper.selectOneByOrderId(orderId);
     }
+
+    @Override
+    public int changeRefundStatus(String id, String status) {
+        return refundVOMapper.changeRefundStatus(id,status);
+    }
+
 }
