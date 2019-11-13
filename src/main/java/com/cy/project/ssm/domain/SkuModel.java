@@ -20,6 +20,15 @@ public class SkuModel {
     @Column(name = "`catalog3_id`")
     private Integer catalog3Id;
 
+    @Override
+    public String toString() {
+        return "SkuModel{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", catalog3Id=" + catalog3Id +
+                '}';
+    }
+
     /**
      * @return id
      */

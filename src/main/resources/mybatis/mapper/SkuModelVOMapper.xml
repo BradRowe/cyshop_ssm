@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cy.project.ssm.mapper.SkuModelVOMapper">
+    
+    <select id="selectAll" resultType="com.cy.project.ssm.viewobject.SkuModelVO">
+SELECT
+	sm.id id ,sm.`name` name ,c3.`name` catalog3_name
+FROM
+	sku_model sm
+	INNER JOIN (  catalog_3 c3 ) ON (c3.id=sm.catalog3_id)
+    </select>
+
+</mapper>
