@@ -13,4 +13,6 @@ public interface SkuModelService {
     Integer delete(Integer id);
 
     Integer update(SkuModel skuModel);
+
+    Integer getLastId();
 }

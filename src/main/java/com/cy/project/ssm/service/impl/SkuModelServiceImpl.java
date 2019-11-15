@@ -23,6 +23,7 @@ public class SkuModelServiceImpl implements SkuModelService {
     private SkuModelMapper skuModelMapper;
     @Autowired
     private SkuModelVOMapper skuModelVOMapper;
+
     @Override
     public Integer addSkuModel(SkuModel skuModel) {
         return skuModelMapper.insert(skuModel);
@@ -43,5 +44,10 @@ public class SkuModelServiceImpl implements SkuModelService {
     @Override
     public Integer update(SkuModel skuModel) {
         return skuModelMapper.updateByPrimaryKey(skuModel);
+    }
+
+    @Override
+    public Integer getLastId() {
+        return skuModelMapper.selectlast();
     }
 }

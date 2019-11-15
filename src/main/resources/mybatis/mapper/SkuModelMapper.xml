@@ -9,4 +9,7 @@
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="catalog3_id" jdbcType="INTEGER" property="catalog3Id" />
   </resultMap>
+  <select id="selectlast" resultType="Integer">
+    select MAX(`id`) from `sku_model`
+  </select>
 </mapper>
