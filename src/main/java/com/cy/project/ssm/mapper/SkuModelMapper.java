@@ -7,4 +7,8 @@ import java.util.List;
 
 public interface SkuModelMapper extends Mapper<SkuModel> {
     Integer selectlast();
+
+    List<String> getAttri(String modelId);
+
+    List<String> getValue(String model_id, String name);
 }

@@ -12,4 +12,10 @@
   <select id="selectlast" resultType="Integer">
     select MAX(`id`) from `sku_model`
   </select>
+  <select id="getAttri" parameterType="String" resultType="String">
+    SELECT `name` FROM	sku_attri_group g INNER JOIN ( sku_attri a, sku_attri_value v ) ON ( g.attri_id = a.id and g.attri_value_id = v.id ) WHERE g.model_id = #{model_id} GROUP BY `name`
+  </select>
+    <select id="getValue" parameterType="String" resultType="String">
+      SELECT `value` FROM	sku_attri_group g	INNER JOIN ( sku_attri a, sku_attri_value v ) ON ( g.attri_id = a.id and g.attri_value_id = v.id ) WHERE g.model_id = #{arg0} AND `name` =#{arg1}
+    </select>
 </mapper>
